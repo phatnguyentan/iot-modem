@@ -1,0 +1,5 @@
+config nodogsplash
+  option enabled 1
+  option fwhook_enabled '1'
+  option config '/etc/nodogsplash/nodogsplash.conf'
+  option gatewayinterface 'br-lan'
