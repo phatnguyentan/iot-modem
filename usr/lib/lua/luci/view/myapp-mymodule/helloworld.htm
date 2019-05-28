@@ -1,0 +1,13 @@
+<%+header%>
+<h1><%:Chuyển Background%></h1>
+<form class="inline" method="post" action="<%=url('my/new/upload')%>" enctype="multipart/form-data">
+  <div class="cbi-value cbi-value-last">
+    <label class="cbi-value-title" for="archive"><%:Chọn background%>:</label>
+    <div class="cbi-value-field">
+      <input type="hidden" name="token" value="<%=token%>" />
+      <input type="file" name="archive" id="archive" />
+      <input type="submit" class="cbi-button cbi-button-action important" name="restore" value="<%:Upload...%>" />
+    </div>
+  </div>
+</form>
+<%+footer%>
