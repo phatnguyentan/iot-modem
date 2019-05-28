@@ -1,0 +1,13 @@
+<%+header%>
+<h1><%:Chuyển Page%></h1>
+<form class="inline" method="post" action="<%=url('my/update/page')%>">
+  <div class="cbi-value cbi-value-last">
+    <label class="cbi-value-title" for="link"><%:Chọn link%>:</label>
+    <div class="cbi-value-field">
+      <input type="hidden" name="token" value="<%=token%>" />
+      <input type="text" name="link" />
+      <input type="submit" class="cbi-button cbi-button-action important" name="restore" value="<%:OK%>" />
+    </div>
+  </div>
+</form>
+<%+footer%>
