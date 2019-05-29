@@ -1,13 +1,104 @@
-<%+header%>
-<h1><%:Chuyển Background%></h1>
-<form class="inline" method="post" action="<%=url('my/new/upload')%>" enctype="multipart/form-data">
-  <div class="cbi-value cbi-value-last">
-    <label class="cbi-value-title" for="archive"><%:Chọn background%>:</label>
-    <div class="cbi-value-field">
-      <input type="hidden" name="token" value="<%=token%>" />
-      <input type="file" name="archive" id="archive" />
-      <input type="submit" class="cbi-button cbi-button-action important" name="restore" value="<%:Upload...%>" />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Admin</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Quảng cáo
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/cgi-bin/luci/my/new/template">Thay banner</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/cgi-bin/luci/my/new/fanpage">Thay fanpage</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm</button>
+      </form>
     </div>
+  </nav>
+  <div class="container">
+    <form class="text-center border border-light p-5" method="post" action="<%=url('my/new/upload')%>"
+      enctype="multipart/form-data">
+      <div class="form-group">
+        <p class="h4 mb-4">Vui Lòng Chọn Background</p>
+        <div>
+          <input type="hidden" name="token" value="<%=token%>" />
+          <input type="file" name="archive" id="archive" />
+          <!-- <input type="submit" class="cbi-button cbi-button-action important" name="restore" value="<%:Upload...%>" /> -->
+        </div>
+      </div>
+      <div class="form-group">
+        <img class="img-fluid" id="blah" src="#" alt="your image" />
+      </div>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
   </div>
-</form>
-<%+footer%>
+  <footer>
+    <hr>
+    <div class="text-center center-block">
+      <p class="txt-railway">Power by PoDa</p>
+      <br />
+      <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social"></i></a>
+      <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social"></i></a>
+      <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social"></i></a>
+      <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social"></i></a>
+    </div>
+  </footer>
+</body>
+<footer>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    crossorigin="anonymous">
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#blah').show();
+          $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#archive").change(function () {
+      readURL(this);
+    });
+    $('#blah').hide();
+  </script>
+</footer>
+
+</html>
