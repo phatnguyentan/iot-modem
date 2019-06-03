@@ -6,6 +6,8 @@ function index()
 		entry({"my", "new", "upload"}, call("uploader")).dependent=false
 		entry({"my", "new", "fanpage"}, template("myapp-mymodule/fanpage")).dependent=false
 		entry({"my", "update", "page"}, call("copy_config")).dependent=false
+
+		entry({"my", "status", "realtime", "connections"}, template("myapp-mymodule/connections"), _("Connections"), 4).dependent=false
 end
 
 function uploader()
